@@ -1,13 +1,14 @@
 const Router = require('express');
 const router = new Router();
+const userController = require('../controllers/userController')
 
 
-router.post('/registration',);
-router.post('/login',);
-router.get('/auth',(req, res) => {
-    res.json({message: 'is authorized'})
-});
+router.post('/registration', userController.registration);
+router.post('/login', userController.login);
+router.get('/auth', userController.check);
 
-
+// (req, res) => {
+//     res.json({message: 'user is authorized'})
+// }
 
 module.exports = router;

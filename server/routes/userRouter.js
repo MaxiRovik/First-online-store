@@ -8,8 +8,6 @@ router.post('/registration', userController.registration);
 router.post('/login', userController.login);
 router.get('/auth',authMiddleware, userController.check);
 
-// (req, res) => {
-//     res.json({message: 'user is authorized'})
-// }
+
 
 module.exports = router;

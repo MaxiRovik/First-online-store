@@ -18,7 +18,7 @@ class DeviceController {
                 info.forEach(i => DeviceInfo.create({
                     title: i.title,
                     description: i.description,
-                    deviceId: i.deviceId
+                    deviceId: device.id
                 }))
             }
 
@@ -29,7 +29,7 @@ class DeviceController {
     } ;
 
     async getAll(req, res) {
-        let {brandId, typeId, limit, page } = req.query;
+        let { brandId, typeId, limit, page } = req.query;
         page = page || 1;
         limit = limit || 11;
         let offset = page*limit - limit;
@@ -56,7 +56,7 @@ class DeviceController {
                 where:{id},
                 include: [{model: DeviceInfo, as: 'info'}]
             },
-        )
+        );
         return res.json(device)
     };
 };
